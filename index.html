@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>RD CALCULATOR</title>
+    </head>
+    <style>
+
+        .container{
+            background-color:skyblue;
+            margin-left: 300px;
+            margin-right: 300px;
+            margin-top: 100px;
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid aqua;
+            margin-left: 20px;
+        }
+        button{
+            background-color:green;
+            color: white;
+            width: 70px;
+            height: 30px;
+            border: 1px solid gray;
+            border-radius: 3px;
+            margin-left: 400px;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <h1>RD Calculator</h1>
+            <label for="principal">Principal Amount (₹):</label>
+            <input type="text" placeholder="Enter the principle amount" id="principal"><br>
+            <label for="principal">Interest rate (%):</label>
+            <input type="text" placeholder="Enter the  annual interest rate" id="rate"><br>
+            <label for="principal">Time (months):</label>
+            <input type="text" placeholder="Enter the number of months" id="time"><br><br>
+        <button onclick="calculateRD()">Calculate</button>
+        <div id="result"></div>
+        </div>
+        <script>
+               
+      function calculateRD() {
+        var principal= parseFloat(document.getElementById("principal").value);
+        var rate = parseFloat(document.getElementById("rate").value);
+        var time = parseFloat(document.getElementById("time").value);
+
+        rate = rate / 100; 
+        var monthlyRate = rate / 12;
+        var totalAmount = 0;
+
+        for (var i = 1; i <= time; i++) {
+          totalAmount += principal * monthlyRate;
+        }
+
+        document.getElementById("result").innerHTML =
+          " Amount after " + time + " months: ₹" + totalAmount.toFixed(2);
+      }
+    
+
+
+           
+
+        </script>
+    </body>
+    </html>
